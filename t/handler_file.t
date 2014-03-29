@@ -36,6 +36,8 @@ subtest "Binary content" => sub {
     my $r = dancer_response GET => "/image";
 
     is $r->status, 200, 'send_file sets the status to 200';
+    is $r->header( 'Content-Type' ), 'image/png',
+        'correct content_type in response';
 };
 
 done_testing;
